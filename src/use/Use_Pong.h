@@ -45,6 +45,10 @@ void USE_Pong()
     NAR_AddOperation(Narsese_AtomicTerm("^left"), USE_Pong_Left); 
     NAR_AddOperation(Narsese_AtomicTerm("^right"), USE_Pong_Right);
 
+    MOTOR_BABBLING_CHANCE = MOTOR_BABBLING_CHANCE_INITIAL;
+    PRINT_DERIVATIONS = false;
+
+
     int sockfd = UDP_INIT_Sender();
     char *destIp = "127.0.0.1";
 
