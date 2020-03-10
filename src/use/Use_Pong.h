@@ -50,9 +50,9 @@ void USE_Pong()
 
     while(1)
     {
-        pthread_mutex_lock(&nar_mutex);
-        NAR_AddInputGoal(Narsese_AtomicTerm("good_nar"));
-        pthread_mutex_unlock(&nar_mutex);
+        //pthread_mutex_lock(&nar_mutex);
+        //NAR_AddInputGoal(Narsese_AtomicTerm("good_nar"));
+        //pthread_mutex_unlock(&nar_mutex);
         
         if(USE_Pong_Left_executed)
         {
