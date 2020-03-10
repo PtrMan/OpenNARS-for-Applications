@@ -39,6 +39,8 @@
 #include <unistd.h>
 #include <pthread.h> 
 
+static pthread_mutex_t nar_mutex = PTHREAD_MUTEX_INITIALIZER;
+
 //Methods//
 //-------//
 //Starts the UDPNAR with a reasoning speed given by timestep, example: 10000000L = 10ms

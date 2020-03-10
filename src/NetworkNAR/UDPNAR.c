@@ -27,7 +27,6 @@
 volatile bool Stopped = false;
 pthread_cond_t start_cond = PTHREAD_COND_INITIALIZER;
 pthread_mutex_t start_mutex = PTHREAD_MUTEX_INITIALIZER;
-pthread_mutex_t nar_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 void* Reasoner_Thread_Run(void* timestep_address)
 {

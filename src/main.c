@@ -32,6 +32,7 @@
 #include "./system_tests/system_tests.h"
 #include "Shell.h"
 #include "./NetworkNAR/UDPNAR.h"
+#include "./use/Use_Pong.h"
 
 void Process_Args(int argc, char *argv[])
 {
@@ -81,6 +82,11 @@ void Process_Args(int argc, char *argv[])
             getchar();
             UDPNAR_Stop();
             exit(0);
+        }
+        if(!strcmp(argv[1],"use_pong"))
+        {
+            PRINT_DERIVATIONS = 0;
+            USE_Pong();
         }
     }
 }
