@@ -36,7 +36,7 @@ void NAR_UDPNAR_Test()
     char *ip = "127.0.0.1";
     int port = 50001;
     long timestep = 10000000L; //10ms
-    UDPNAR_Start(ip, port, timestep);
+    UDPNAR_Start(ip, port, timestep, true);
     NAR_AddOperation(Narsese_Term("^left"), NAR_UDPNAR_Test_op_left);
     int sockfd_sender = UDP_INIT_Sender();
     char *send_data1 = "<(a &/ ^left) =/> g>.";

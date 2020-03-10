@@ -67,7 +67,7 @@ void Process_Args(int argc, char *argv[])
         }
         if(!strcmp(argv[1],"shell"))
         {
-            Shell_Start();
+            Shell_Start(true);
         }
         if(!strcmp(argv[1],"UDPNAR")) // ./NAR UDPNAR IP PORT timestep(ns per cycle) printDerivations
         {
@@ -76,7 +76,7 @@ void Process_Args(int argc, char *argv[])
             long timestep = atol(argv[4]);
             bool printDerivations = !strcmp("true", argv[5]);
             PRINT_DERIVATIONS = printDerivations;
-            UDPNAR_Start(ip, port, timestep);
+            UDPNAR_Start(ip, port, timestep, true);
             puts("//press any key and enter to quit!");
             fflush(stdout);
             getchar();

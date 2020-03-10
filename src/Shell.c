@@ -64,21 +64,23 @@ static void Shell_op_deactivate(Term args)
 {
     fputs("^deactivate executed with args ", stdout); Narsese_PrintTerm(&args); puts(""); fflush(stdout);
 }
-void Shell_NARInit()
+void Shell_NARInit(bool addOps)
 {
     fflush(stdout);
     NAR_INIT();
     PRINT_DERIVATIONS = true;
-    NAR_AddOperation(Narsese_AtomicTerm("^left"), Shell_op_left); 
-    NAR_AddOperation(Narsese_AtomicTerm("^right"), Shell_op_right); 
-    NAR_AddOperation(Narsese_AtomicTerm("^up"), Shell_op_up); 
-    NAR_AddOperation(Narsese_AtomicTerm("^down"), Shell_op_down);
-    NAR_AddOperation(Narsese_AtomicTerm("^say"), Shell_op_say);
-    NAR_AddOperation(Narsese_AtomicTerm("^pick"), Shell_op_pick);
-    NAR_AddOperation(Narsese_AtomicTerm("^drop"), Shell_op_drop);
-    NAR_AddOperation(Narsese_AtomicTerm("^go"), Shell_op_go);
-    NAR_AddOperation(Narsese_AtomicTerm("^activate"), Shell_op_activate);
-    NAR_AddOperation(Narsese_AtomicTerm("^deactivate"), Shell_op_deactivate);
+    if (addOps) {
+        NAR_AddOperation(Narsese_AtomicTerm("^left"), Shell_op_left); 
+        NAR_AddOperation(Narsese_AtomicTerm("^right"), Shell_op_right); 
+        NAR_AddOperation(Narsese_AtomicTerm("^up"), Shell_op_up); 
+        NAR_AddOperation(Narsese_AtomicTerm("^down"), Shell_op_down);
+        NAR_AddOperation(Narsese_AtomicTerm("^say"), Shell_op_say);
+        NAR_AddOperation(Narsese_AtomicTerm("^pick"), Shell_op_pick);
+        NAR_AddOperation(Narsese_AtomicTerm("^drop"), Shell_op_drop);
+        NAR_AddOperation(Narsese_AtomicTerm("^go"), Shell_op_go);
+        NAR_AddOperation(Narsese_AtomicTerm("^activate"), Shell_op_activate);
+        NAR_AddOperation(Narsese_AtomicTerm("^deactivate"), Shell_op_deactivate);
+    }
 }
 
 bool Shell_ProcessInput(char *line)
@@ -161,7 +163,7 @@ bool Shell_ProcessInput(char *line)
 
 void Shell_Start()
 {
-    Shell_NARInit();
+    Shell_NARInit(true);
     for(;;)
     {
         char line[1024] = {0};
@@ -172,7 +174,7 @@ void Shell_Start()
         }
         if(Shell_ProcessInput(line)) //reset?
         {
-            Shell_NARInit();
+            Shell_NARInit(true);
         }
     }
 }
