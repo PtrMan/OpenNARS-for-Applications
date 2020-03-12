@@ -40,7 +40,7 @@ void USE_Pong_Right()
 void USE_Pong()
 {
     puts(">>USE Pong: start UDPNAR");
-    UDPNAR_Start("127.0.0.1", 50000, 10000000, false);
+    UDPNAR_Start("127.0.0.1", 50000, 1000, false);
     puts(">>USE Pong: start");
     NAR_AddOperation(Narsese_AtomicTerm("^left"), USE_Pong_Left); 
     NAR_AddOperation(Narsese_AtomicTerm("^right"), USE_Pong_Right);
