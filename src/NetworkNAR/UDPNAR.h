@@ -40,6 +40,8 @@
 #include <pthread.h> 
 
 static pthread_mutex_t nar_mutex = PTHREAD_MUTEX_INITIALIZER;
+static pthread_mutex_t narQueue_mutex = PTHREAD_MUTEX_INITIALIZER;
+
 
 //Methods//
 //-------//

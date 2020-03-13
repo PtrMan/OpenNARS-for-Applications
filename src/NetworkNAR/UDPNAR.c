@@ -28,6 +28,9 @@ volatile bool Stopped = false;
 pthread_cond_t start_cond = PTHREAD_COND_INITIALIZER;
 pthread_mutex_t start_mutex = PTHREAD_MUTEX_INITIALIZER;
 
+static char narseseQueue[100][NARSESE_LEN_MAX];
+static int narseseQueueLen;
+
 void* Reasoner_Thread_Run(void* timestep_address)
 {
     pthread_mutex_lock(&start_mutex);
@@ -37,9 +40,44 @@ void* Reasoner_Thread_Run(void* timestep_address)
     assert(timestep >= 0, "Nonsensical timestep for UDPNAR!");
     while(!Stopped)
     {
+        char narseseQueue2[100][NARSESE_LEN_MAX];
+        int narseseQueueLen2;
+
+        // take queued messages and stuff them into NAR
+        pthread_mutex_lock(&narQueue_mutex);
+        narseseQueueLen2 = narseseQueueLen;
+        for(int idx=0;idx<narseseQueueLen;idx++) {
+            memcpy(narseseQueue2[idx], narseseQueue[idx], NARSESE_LEN_MAX);
+        }
+        narseseQueueLen = 0;
+        pthread_mutex_unlock(&narQueue_mutex);
+
+        // ...stuff them into NAR
+        puts("[d] input to NAR...");
+        fflush(stdout);
+
+        if (narseseQueueLen2 > 0) {
+            for(int idx=0;idx<narseseQueueLen2;idx++) {
+                if(Shell_ProcessInput(narseseQueue2[idx])) //reset?
+                {
+                    Shell_NARInit(true);
+                }
+            }
+        }
+        puts("[d] ...done");
+        fflush(stdout);
+
+
+        int cycleBatch = 2;
         pthread_mutex_lock(&nar_mutex);
-        NAR_Cycles(1);
+        puts("[d] cycles");
+        fflush(stdout);
+        NAR_Cycles(cycleBatch);
+        puts("[d] ...done");
+        fflush(stdout);
         pthread_mutex_unlock(&nar_mutex);
+
+
         if(timestep >= 0)
         {
             nanosleep((struct timespec[]){{0, timestep}}, NULL); //POSIX sleep for timestep nanoseconds
@@ -62,12 +100,27 @@ void* Receive_Thread_Run(void *sockfd_address)
         {
             break;
         }
+        //puts("[d] UDP received, lock");
+        //fflush(stdout);
+
+        // put on queue
+        pthread_mutex_lock(&narQueue_mutex);
+        memcpy(narseseQueue[narseseQueueLen++], buffer, NARSESE_LEN_MAX);
+        narseseQueueLen = MIN(narseseQueueLen, 100-1);
+        pthread_mutex_unlock(&narQueue_mutex);
+        
+        /*
         pthread_mutex_lock(&nar_mutex);
         if(Shell_ProcessInput(buffer)) //reset?
         {
             Shell_NARInit(true);
         }
         pthread_mutex_unlock(&nar_mutex);
+        */
+
+        //puts("[d] ...done");
+        //fflush(stdout);
+
     }
     return NULL;
 }
@@ -77,6 +130,8 @@ bool Started = false;
 int receiver_sockfd; 
 void UDPNAR_Start(char *ip, int port, long timestep, bool addOps)
 {
+    narseseQueueLen = 0;
+
     assert(!Stopped, "UDPNAR was already started!");
     Shell_NARInit(addOps);
     receiver_sockfd = UDP_INIT_Receiver(ip, port);
