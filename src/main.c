@@ -85,7 +85,7 @@ void Process_Args(int argc, char *argv[])
         }
         if(!strcmp(argv[1],"use_pong"))
         {
-            PRINT_DERIVATIONS = 0;
+            PRINT_DERIVATIONS = 1;
             USE_Pong();
         }
     }

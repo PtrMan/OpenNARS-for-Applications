@@ -39,7 +39,7 @@
 //Truth expectation threshold for subgoals to be propagated
 #define PROPAGATION_THRESHOLD_INITIAL 0.501
 //How many propagation iterations happen per cycle
-#define PROPAGATION_ITERATIONS 5
+#define PROPAGATION_ITERATIONS 2
 
 /*---------------------*/
 /* Decision parameters */
