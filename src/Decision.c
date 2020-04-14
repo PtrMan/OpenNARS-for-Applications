@@ -103,6 +103,19 @@ static Decision Decision_ConsiderImplication(long currentTime, Event *goal, int 
         Term operation = Term_ExtractSubterm(&imp->term, 4); //^op or [: args ^op]
         if(!Narsese_isOperator(operation.atoms[0])) //it is an operation with args, not just an atomic operator, so remember the args
         {
+            //puts("IMP TERM:\r\n");
+            //Narsese_PrintTerm(&imp->term); puts("\r\n");
+
+
+            // HACK< avoid crashes >
+            if (!Narsese_isOperator(operation.atoms[2])) {
+                
+                
+                decision = (Decision) {0};
+                return decision;
+            }
+            
+
             assert(Narsese_isOperator(operation.atoms[2]), "If it's not atomic, it needs to be an operation with args here");
             decision.arguments = Term_ExtractSubterm(&imp->term, 9); 
         }
