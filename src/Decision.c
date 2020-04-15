@@ -108,6 +108,7 @@ static Decision Decision_ConsiderImplication(long currentTime, Event *goal, int 
 
 
             // HACK< avoid crashes >
+            
             if (!Narsese_isOperator(operation.atoms[2])) {
                 
                 

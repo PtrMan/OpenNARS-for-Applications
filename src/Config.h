@@ -85,7 +85,7 @@
 //Maximum size of the stamp in terms of evidental base id's
 #define STAMP_SIZE 10
 //Maximum event FIFO size
-#define FIFO_SIZE 46 // 20
+#define FIFO_SIZE 26 // 20
 //Maximum Implication table size
 #define TABLE_SIZE 20
 //Maximum length of sequences
@@ -113,7 +113,7 @@
 //NAL evidental horizon
 #define TRUTH_EVIDENTAL_HORIZON_INITIAL 1.0
 //Time distance based projection decay of event truth
-#define TRUTH_PROJECTION_DECAY_INITIAL 0.95 // 0.8
+#define TRUTH_PROJECTION_DECAY_INITIAL 0.92 // 0.8
 //Maximum value for confidence
 #define MAX_CONFIDENCE 0.99
 
