@@ -109,7 +109,7 @@ bool Shell_ProcessInput(char *line)
             return false;
         }
         else
-        if(!strcmp(line,"**"))
+        if(!strcmp(line,"*reset"))
         {
             return true;
         }
@@ -151,6 +151,11 @@ bool Shell_ProcessInput(char *line)
             printf("performing %u inference steps:\n", steps); fflush(stdout);
             NAR_Cycles(steps);
             printf("done with %u additional inference steps.\n", steps); fflush(stdout);
+        }
+        else
+        if(!strcmp(line,"*reset"))
+        {
+            Memory_INIT();
         }
         else
         {

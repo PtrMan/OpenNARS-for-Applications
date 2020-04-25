@@ -71,7 +71,7 @@ static Decision Decision_MotorBabbling()
     return decision;
 }
 
-static Decision Decision_ConsiderImplication(long currentTime, Event *goal, int considered_opi, Implication *imp, Implication *DebugBestImp)
+static Decision Decision_ConsiderImplication(long currentTime, Event *goal, int considered_opi, Implication *imp)
 {
     Decision decision = (Decision) {0};
     IN_DEBUG
@@ -100,7 +100,6 @@ static Decision Decision_ConsiderImplication(long currentTime, Event *goal, int 
             printf("CONSIDERED time %ld\n", precondition->occurrenceTime);
             Narsese_PrintTerm(&precondition->term); puts("");
         )
-        *DebugBestImp = *imp;
         //<(precon &/ <args --> ^op>) =/> postcon>. -> [$ , postcon precon : _ _ _ _ args ^op
         Term operation = Term_ExtractSubterm(&imp->term, 4); //^op or [: args ^op]
         if(!Narsese_isOperator(operation.atoms[0])) //it is an operation with args, not just an atomic operator, so remember the args
@@ -130,54 +129,73 @@ static Decision Decision_ConsiderImplication(long currentTime, Event *goal, int 
 }
 
 int stampID = -1;
-Decision Decision_BestCandidate(Event *goal, long currentTime)
+Decision Decision_BestCandidate(Concept *goalconcept, Event *goal, long currentTime)
 {
     Decision decision = (Decision) {0};
     Implication bestImp = {0};
+    long bestComplexity = COMPOUND_TERM_SIZE_MAX+1;
     Concept *cbest_predicate = NULL;
-    for(int concept_i=0; concept_i<concepts.itemsAmount; concept_i++)
+    Decision decisionGeneral = (Decision) {0};
+    Implication bestImpGeneral = {0};
+    long bestComplexityGeneral = COMPOUND_TERM_SIZE_MAX+1;
+    Concept *cbest_predicateGeneral = NULL;
+    Substitution subs = Variable_Unify(&goalconcept->term, &goal->term);
+    if(subs.success)
     {
-        Concept *postc_general = concepts.items[concept_i].address;
-        Substitution subs = Variable_Unify(&postc_general->term, &goal->term);
-        if(subs.success)
+        for(int opi=1; opi<OPERATIONS_MAX && operations[opi-1].action != 0; opi++)
         {
-            for(int opi=1; opi<OPERATIONS_MAX && operations[opi-1].action != 0; opi++)
+            for(int j=0; j<goalconcept->precondition_beliefs[opi].itemsAmount; j++)
             {
-                for(int j=0; j<postc_general->precondition_beliefs[opi].itemsAmount; j++)
+                if(!Memory_ImplicationValid(&goalconcept->precondition_beliefs[opi].array[j]))
                 {
-                    if(!Memory_ImplicationValid(&postc_general->precondition_beliefs[opi].array[j]))
+                    Table_Remove(&goalconcept->precondition_beliefs[opi], j--);
+                    continue;
+                }
+                Implication imp = goalconcept->precondition_beliefs[opi].array[j];
+                bool impHasVariable = Variable_hasVariable(&imp.term, true, true, true);
+                bool success;
+                imp.term = Variable_ApplySubstitute(imp.term, subs, &success);
+                if(success)
+                {
+                    assert(Narsese_copulaEquals(imp.term.atoms[0], '$'), "This should be an implication!");
+                    Term left_side_with_op = Term_ExtractSubterm(&imp.term, 1);
+                    Term left_side = Narsese_GetPreconditionWithoutOp(&left_side_with_op); //might be something like <#1 --> a>
+                    for(int cmatch_k=0; cmatch_k<concepts.itemsAmount; cmatch_k++)
                     {
-                        Table_Remove(&postc_general->precondition_beliefs[opi], j--);
-                        continue;
-                    }
-                    Implication imp = postc_general->precondition_beliefs[opi].array[j];
-                    bool success;
-                    imp.term = Variable_ApplySubstitute(imp.term, subs, &success);
-                    if(success)
-                    {
-                        assert(Narsese_copulaEquals(imp.term.atoms[0], '$'), "This should be an implication!");
-                        Term left_side_with_op = Term_ExtractSubterm(&imp.term, 1);
-                        Term left_side = Narsese_GetPreconditionWithoutOp(&left_side_with_op); //might be something like <#1 --> a>
-                        for(int cmatch_k=0; cmatch_k<concepts.itemsAmount; cmatch_k++)
+                        Concept *cmatch = concepts.items[cmatch_k].address;
+                        if(!Variable_hasVariable(&cmatch->term, true, true, true))
                         {
-                            Concept *cmatch = concepts.items[cmatch_k].address;
-                            if(!Variable_hasVariable(&cmatch->term, true, true, true))
+                            Substitution subs2 = Variable_Unify(&left_side, &cmatch->term);
+                            if(subs2.success)
                             {
-                                Substitution subs2 = Variable_Unify(&left_side, &cmatch->term);
-                                if(subs2.success)
+                                Implication specific_imp = imp; //can only be completely specific
+                                bool success;
+                                specific_imp.term = Variable_ApplySubstitute(specific_imp.term, subs2, &success);
+                                if(success && !Variable_hasVariable(&specific_imp.term, true, true, true))
                                 {
-                                    Implication specific_imp = imp; //can only be completely specific
-                                    bool success;
-                                    specific_imp.term = Variable_ApplySubstitute(specific_imp.term, subs2, &success);
-                                    if(success && !Variable_hasVariable(&specific_imp.term, true, true, true))
+                                    specific_imp.sourceConcept = cmatch;
+                                    specific_imp.sourceConceptId = cmatch->id;
+                                    Decision considered = Decision_ConsiderImplication(currentTime, goal, opi, &specific_imp);
+                                    int specific_imp_complexity = Term_Complexity(&specific_imp.term);
+                                    if(impHasVariable)
                                     {
-                                        specific_imp.sourceConcept = cmatch;
-                                        specific_imp.sourceConceptId = cmatch->id;
-                                        Decision considered = Decision_ConsiderImplication(currentTime, goal, opi, &specific_imp, &bestImp);
-                                        if(considered.desire > decision.desire)
+                                        if(considered.desire > decisionGeneral.desire || (considered.desire == decisionGeneral.desire && specific_imp_complexity < bestComplexityGeneral))
+                                        {
+                                            decisionGeneral = considered;
+                                            cbest_predicateGeneral = cmatch;
+                                            bestComplexityGeneral = specific_imp_complexity;
+                                            bestImpGeneral = imp;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if(considered.desire > decision.desire || (considered.desire == decision.desire && specific_imp_complexity < bestComplexity))
                                         {
                                             decision = considered;
+                                            decision.specialized = true;
                                             cbest_predicate = cmatch;
+                                            bestComplexity = specific_imp_complexity;
+                                            bestImp = imp;
                                         }
                                     }
                                 }
@@ -188,19 +206,26 @@ Decision Decision_BestCandidate(Event *goal, long currentTime)
             }
         }
     }
+    //use general solution only if the specific solution doesn't exceed the threshold
+    if(decisionGeneral.desire > decision.desire && decision.desire < DECISION_THRESHOLD)
+    {
+        decision = decisionGeneral;
+        cbest_predicate = cbest_predicateGeneral;
+        bestImp = bestImpGeneral;
+    }
     if(decision.desire < DECISION_THRESHOLD)
     {
-        return decision;
+        return (Decision) {0};
     }
     //increase usefulness
     assert(cbest_predicate != NULL, "Above decision threshold but postcondition concept is NULL!");
-    cbest_predicate->usage = Usage_use(cbest_predicate->usage, currentTime);
+    cbest_predicate->usage = Usage_use(cbest_predicate->usage, currentTime, false);
     Term subject_with_op = Term_ExtractSubterm(&bestImp.term, 1);
     Term subject = Narsese_GetPreconditionWithoutOp(&subject_with_op);
     Concept *cbest_subject = Memory_Conceptualize(&subject, currentTime);
     if(cbest_subject != NULL)
     {
-        cbest_subject->usage = Usage_use(cbest_subject->usage, currentTime);
+        cbest_subject->usage = Usage_use(cbest_subject->usage, currentTime, false);
     }
     //set execute and return execution
     printf("decision expectation %f impTruth=(%f, %f): future=%ld ", decision.desire, bestImp.truth.frequency, bestImp.truth.confidence, bestImp.occurrenceTimeOffset);
@@ -260,7 +285,7 @@ void Decision_AssumptionOfFailure(int operationID, long currentTime)
     }
 }
 
-Decision Decision_Suggest(Event *goal, long currentTime)
+Decision Decision_Suggest(Concept *postc, Event *goal, long currentTime)
 {
     Decision babble_decision = {0};
     //try motor babbling with a certain chance
@@ -269,7 +294,7 @@ Decision Decision_Suggest(Event *goal, long currentTime)
         babble_decision = Decision_MotorBabbling();
     }
     //try matching op if didn't motor babble
-    Decision decision_suggested = Decision_BestCandidate(goal, currentTime);
+    Decision decision_suggested = Decision_BestCandidate(postc, goal, currentTime);
     if(!babble_decision.execute || decision_suggested.desire > MOTOR_BABBLING_SUPPRESSION_THRESHOLD)
     {
        return decision_suggested;
