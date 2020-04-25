@@ -1,0 +1,1945 @@
+#include "RuleTable.h"
+void RuleTable_Apply(Term term1, Term term2, Truth truth1, Truth truth2, long conclusionOccurrence, Stamp conclusionStamp, long currentTime, double parentPriority, double conceptPriority, bool doublePremise, Concept *validation_concept, long validation_cid)
+{
+goto RULE_0;
+RULE_0:
+{
+if(!doublePremise) { goto RULE_1; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_1; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[33].atoms[0]!=0 && !Term_Equal(&substitutions[33], &subtree)){ goto RULE_1; }
+substitutions[33] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_1; }
+substitutions[31] = subtree;
+if(term2.atoms[0] != 43){ goto RULE_1; }
+subtree = Term_ExtractSubterm(&term2, 1);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_1; }
+substitutions[31] = subtree;
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[34].atoms[0]!=0 && !Term_Equal(&substitutions[34], &subtree)){ goto RULE_1; }
+substitutions[34] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[33])){ goto RULE_1; }
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[34])){ goto RULE_1; }
+Truth conclusionTruth = Truth_Deduction(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_1:
+{
+if(!doublePremise) { goto RULE_2; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_2; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_2; }
+substitutions[31] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[34].atoms[0]!=0 && !Term_Equal(&substitutions[34], &subtree)){ goto RULE_2; }
+substitutions[34] = subtree;
+if(term2.atoms[0] != 43){ goto RULE_2; }
+subtree = Term_ExtractSubterm(&term2, 1);
+if(substitutions[33].atoms[0]!=0 && !Term_Equal(&substitutions[33], &subtree)){ goto RULE_2; }
+substitutions[33] = subtree;
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_2; }
+substitutions[31] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[33])){ goto RULE_2; }
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[34])){ goto RULE_2; }
+Truth conclusionTruth = Truth_Deduction(truth2,truth1);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_2:
+{
+if(!doublePremise) { goto RULE_3; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_3; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_3; }
+substitutions[28] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_3; }
+substitutions[29] = subtree;
+if(term2.atoms[0] != 43){ goto RULE_3; }
+subtree = Term_ExtractSubterm(&term2, 1);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_3; }
+substitutions[28] = subtree;
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[30].atoms[0]!=0 && !Term_Equal(&substitutions[30], &subtree)){ goto RULE_3; }
+substitutions[30] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[30])){ goto RULE_3; }
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[29])){ goto RULE_3; }
+Truth conclusionTruth = Truth_Abduction(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_3:
+{
+if(!doublePremise) { goto RULE_4; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_4; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_4; }
+substitutions[28] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[30].atoms[0]!=0 && !Term_Equal(&substitutions[30], &subtree)){ goto RULE_4; }
+substitutions[30] = subtree;
+if(term2.atoms[0] != 43){ goto RULE_4; }
+subtree = Term_ExtractSubterm(&term2, 1);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_4; }
+substitutions[28] = subtree;
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_4; }
+substitutions[29] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[30])){ goto RULE_4; }
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[29])){ goto RULE_4; }
+Truth conclusionTruth = Truth_Abduction(truth2,truth1);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_4:
+{
+if(!doublePremise) { goto RULE_5; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_5; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_5; }
+substitutions[28] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[30].atoms[0]!=0 && !Term_Equal(&substitutions[30], &subtree)){ goto RULE_5; }
+substitutions[30] = subtree;
+if(term2.atoms[0] != 43){ goto RULE_5; }
+subtree = Term_ExtractSubterm(&term2, 1);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_5; }
+substitutions[29] = subtree;
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[30].atoms[0]!=0 && !Term_Equal(&substitutions[30], &subtree)){ goto RULE_5; }
+substitutions[30] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[29])){ goto RULE_5; }
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[28])){ goto RULE_5; }
+Truth conclusionTruth = Truth_Induction(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_5:
+{
+if(!doublePremise) { goto RULE_6; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_6; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_6; }
+substitutions[29] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[30].atoms[0]!=0 && !Term_Equal(&substitutions[30], &subtree)){ goto RULE_6; }
+substitutions[30] = subtree;
+if(term2.atoms[0] != 43){ goto RULE_6; }
+subtree = Term_ExtractSubterm(&term2, 1);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_6; }
+substitutions[28] = subtree;
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[30].atoms[0]!=0 && !Term_Equal(&substitutions[30], &subtree)){ goto RULE_6; }
+substitutions[30] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[29])){ goto RULE_6; }
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[28])){ goto RULE_6; }
+Truth conclusionTruth = Truth_Induction(truth2,truth1);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_6:
+{
+if(!doublePremise) { goto RULE_7; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_7; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_7; }
+substitutions[28] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_7; }
+substitutions[29] = subtree;
+if(term2.atoms[0] != 43){ goto RULE_7; }
+subtree = Term_ExtractSubterm(&term2, 1);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_7; }
+substitutions[29] = subtree;
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[30].atoms[0]!=0 && !Term_Equal(&substitutions[30], &subtree)){ goto RULE_7; }
+substitutions[30] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[30])){ goto RULE_7; }
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[28])){ goto RULE_7; }
+Truth conclusionTruth = Truth_Exemplification(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_7:
+{
+if(!doublePremise) { goto RULE_8; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_8; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_8; }
+substitutions[29] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[30].atoms[0]!=0 && !Term_Equal(&substitutions[30], &subtree)){ goto RULE_8; }
+substitutions[30] = subtree;
+if(term2.atoms[0] != 43){ goto RULE_8; }
+subtree = Term_ExtractSubterm(&term2, 1);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_8; }
+substitutions[28] = subtree;
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_8; }
+substitutions[29] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[30])){ goto RULE_8; }
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[28])){ goto RULE_8; }
+Truth conclusionTruth = Truth_Exemplification(truth2,truth1);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_8:
+{
+if(doublePremise) { goto RULE_9; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 44){ goto RULE_9; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[33].atoms[0]!=0 && !Term_Equal(&substitutions[33], &subtree)){ goto RULE_9; }
+substitutions[33] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[34].atoms[0]!=0 && !Term_Equal(&substitutions[34], &subtree)){ goto RULE_9; }
+substitutions[34] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 44;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[34])){ goto RULE_9; }
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[33])){ goto RULE_9; }
+Truth conclusionTruth = Truth_StructuralDeduction(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_9:
+{
+if(doublePremise) { goto RULE_10; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_10; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[33].atoms[0]!=0 && !Term_Equal(&substitutions[33], &subtree)){ goto RULE_10; }
+substitutions[33] = subtree;
+if(term1.atoms[2] != 47){ goto RULE_10; }
+subtree = Term_ExtractSubterm(&term1, 5);
+if(substitutions[34].atoms[0]!=0 && !Term_Equal(&substitutions[34], &subtree)){ goto RULE_10; }
+substitutions[34] = subtree;
+if(term1.atoms[6] != 38){ goto RULE_10; }
+Term conclusion = {0};
+conclusion.atoms[0] = 44;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[33])){ goto RULE_10; }
+conclusion.atoms[2] = 47;
+if(!Term_OverrideSubterm(&conclusion,5,&substitutions[34])){ goto RULE_10; }
+conclusion.atoms[6] = 38;
+Truth conclusionTruth = Truth_StructuralDeduction(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_10:
+{
+if(doublePremise) { goto RULE_11; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_11; }
+if(term1.atoms[1] != 46){ goto RULE_11; }
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[34].atoms[0]!=0 && !Term_Equal(&substitutions[34], &subtree)){ goto RULE_11; }
+substitutions[34] = subtree;
+subtree = Term_ExtractSubterm(&term1, 3);
+if(substitutions[33].atoms[0]!=0 && !Term_Equal(&substitutions[33], &subtree)){ goto RULE_11; }
+substitutions[33] = subtree;
+if(term1.atoms[4] != 38){ goto RULE_11; }
+Term conclusion = {0};
+conclusion.atoms[0] = 44;
+conclusion.atoms[1] = 46;
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[34])){ goto RULE_11; }
+if(!Term_OverrideSubterm(&conclusion,3,&substitutions[33])){ goto RULE_11; }
+conclusion.atoms[4] = 38;
+Truth conclusionTruth = Truth_StructuralDeduction(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_11:
+{
+if(!doublePremise) { goto RULE_12; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_12; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[34].atoms[0]!=0 && !Term_Equal(&substitutions[34], &subtree)){ goto RULE_12; }
+substitutions[34] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_12; }
+substitutions[31] = subtree;
+if(term2.atoms[0] != 43){ goto RULE_12; }
+subtree = Term_ExtractSubterm(&term2, 1);
+if(substitutions[33].atoms[0]!=0 && !Term_Equal(&substitutions[33], &subtree)){ goto RULE_12; }
+substitutions[33] = subtree;
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_12; }
+substitutions[31] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 44;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[33])){ goto RULE_12; }
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[34])){ goto RULE_12; }
+Truth conclusionTruth = Truth_Comparison(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_12:
+{
+if(!doublePremise) { goto RULE_13; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_13; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[33].atoms[0]!=0 && !Term_Equal(&substitutions[33], &subtree)){ goto RULE_13; }
+substitutions[33] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_13; }
+substitutions[31] = subtree;
+if(term2.atoms[0] != 43){ goto RULE_13; }
+subtree = Term_ExtractSubterm(&term2, 1);
+if(substitutions[34].atoms[0]!=0 && !Term_Equal(&substitutions[34], &subtree)){ goto RULE_13; }
+substitutions[34] = subtree;
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_13; }
+substitutions[31] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 44;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[33])){ goto RULE_13; }
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[34])){ goto RULE_13; }
+Truth conclusionTruth = Truth_Comparison(truth2,truth1);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_13:
+{
+if(!doublePremise) { goto RULE_14; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_14; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_14; }
+substitutions[31] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[34].atoms[0]!=0 && !Term_Equal(&substitutions[34], &subtree)){ goto RULE_14; }
+substitutions[34] = subtree;
+if(term2.atoms[0] != 43){ goto RULE_14; }
+subtree = Term_ExtractSubterm(&term2, 1);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_14; }
+substitutions[31] = subtree;
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[33].atoms[0]!=0 && !Term_Equal(&substitutions[33], &subtree)){ goto RULE_14; }
+substitutions[33] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 44;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[33])){ goto RULE_14; }
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[34])){ goto RULE_14; }
+Truth conclusionTruth = Truth_Comparison(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_14:
+{
+if(!doublePremise) { goto RULE_15; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_15; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_15; }
+substitutions[31] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[33].atoms[0]!=0 && !Term_Equal(&substitutions[33], &subtree)){ goto RULE_15; }
+substitutions[33] = subtree;
+if(term2.atoms[0] != 43){ goto RULE_15; }
+subtree = Term_ExtractSubterm(&term2, 1);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_15; }
+substitutions[31] = subtree;
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[34].atoms[0]!=0 && !Term_Equal(&substitutions[34], &subtree)){ goto RULE_15; }
+substitutions[34] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 44;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[33])){ goto RULE_15; }
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[34])){ goto RULE_15; }
+Truth conclusionTruth = Truth_Comparison(truth2,truth1);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_15:
+{
+if(!doublePremise) { goto RULE_16; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_16; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_16; }
+substitutions[31] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[34].atoms[0]!=0 && !Term_Equal(&substitutions[34], &subtree)){ goto RULE_16; }
+substitutions[34] = subtree;
+if(term2.atoms[0] != 44){ goto RULE_16; }
+subtree = Term_ExtractSubterm(&term2, 1);
+if(substitutions[33].atoms[0]!=0 && !Term_Equal(&substitutions[33], &subtree)){ goto RULE_16; }
+substitutions[33] = subtree;
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_16; }
+substitutions[31] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[33])){ goto RULE_16; }
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[34])){ goto RULE_16; }
+Truth conclusionTruth = Truth_Analogy(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_16:
+{
+if(!doublePremise) { goto RULE_17; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 44){ goto RULE_17; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[33].atoms[0]!=0 && !Term_Equal(&substitutions[33], &subtree)){ goto RULE_17; }
+substitutions[33] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_17; }
+substitutions[31] = subtree;
+if(term2.atoms[0] != 43){ goto RULE_17; }
+subtree = Term_ExtractSubterm(&term2, 1);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_17; }
+substitutions[31] = subtree;
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[34].atoms[0]!=0 && !Term_Equal(&substitutions[34], &subtree)){ goto RULE_17; }
+substitutions[34] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[33])){ goto RULE_17; }
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[34])){ goto RULE_17; }
+Truth conclusionTruth = Truth_Analogy(truth2,truth1);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_17:
+{
+if(!doublePremise) { goto RULE_18; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_18; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[34].atoms[0]!=0 && !Term_Equal(&substitutions[34], &subtree)){ goto RULE_18; }
+substitutions[34] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_18; }
+substitutions[31] = subtree;
+if(term2.atoms[0] != 44){ goto RULE_18; }
+subtree = Term_ExtractSubterm(&term2, 1);
+if(substitutions[33].atoms[0]!=0 && !Term_Equal(&substitutions[33], &subtree)){ goto RULE_18; }
+substitutions[33] = subtree;
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_18; }
+substitutions[31] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[34])){ goto RULE_18; }
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[33])){ goto RULE_18; }
+Truth conclusionTruth = Truth_Analogy(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_18:
+{
+if(!doublePremise) { goto RULE_19; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 44){ goto RULE_19; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[33].atoms[0]!=0 && !Term_Equal(&substitutions[33], &subtree)){ goto RULE_19; }
+substitutions[33] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_19; }
+substitutions[31] = subtree;
+if(term2.atoms[0] != 43){ goto RULE_19; }
+subtree = Term_ExtractSubterm(&term2, 1);
+if(substitutions[34].atoms[0]!=0 && !Term_Equal(&substitutions[34], &subtree)){ goto RULE_19; }
+substitutions[34] = subtree;
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_19; }
+substitutions[31] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[34])){ goto RULE_19; }
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[33])){ goto RULE_19; }
+Truth conclusionTruth = Truth_Analogy(truth2,truth1);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_19:
+{
+if(!doublePremise) { goto RULE_20; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 44){ goto RULE_20; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_20; }
+substitutions[31] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[34].atoms[0]!=0 && !Term_Equal(&substitutions[34], &subtree)){ goto RULE_20; }
+substitutions[34] = subtree;
+if(term2.atoms[0] != 44){ goto RULE_20; }
+subtree = Term_ExtractSubterm(&term2, 1);
+if(substitutions[33].atoms[0]!=0 && !Term_Equal(&substitutions[33], &subtree)){ goto RULE_20; }
+substitutions[33] = subtree;
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_20; }
+substitutions[31] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 44;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[33])){ goto RULE_20; }
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[34])){ goto RULE_20; }
+Truth conclusionTruth = Truth_Resemblance(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_20:
+{
+if(!doublePremise) { goto RULE_21; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 44){ goto RULE_21; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[33].atoms[0]!=0 && !Term_Equal(&substitutions[33], &subtree)){ goto RULE_21; }
+substitutions[33] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_21; }
+substitutions[31] = subtree;
+if(term2.atoms[0] != 44){ goto RULE_21; }
+subtree = Term_ExtractSubterm(&term2, 1);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_21; }
+substitutions[31] = subtree;
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[34].atoms[0]!=0 && !Term_Equal(&substitutions[34], &subtree)){ goto RULE_21; }
+substitutions[34] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 44;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[33])){ goto RULE_21; }
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[34])){ goto RULE_21; }
+Truth conclusionTruth = Truth_Resemblance(truth2,truth1);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_21:
+{
+if(doublePremise) { goto RULE_22; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 44){ goto RULE_22; }
+if(term1.atoms[1] != 47){ goto RULE_22; }
+if(term1.atoms[2] != 47){ goto RULE_22; }
+subtree = Term_ExtractSubterm(&term1, 3);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_22; }
+substitutions[28] = subtree;
+if(term1.atoms[4] != 38){ goto RULE_22; }
+subtree = Term_ExtractSubterm(&term1, 5);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_22; }
+substitutions[29] = subtree;
+if(term1.atoms[6] != 38){ goto RULE_22; }
+Term conclusion = {0};
+conclusion.atoms[0] = 44;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[28])){ goto RULE_22; }
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[29])){ goto RULE_22; }
+Truth conclusionTruth = Truth_StructuralDeduction(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_22:
+{
+if(doublePremise) { goto RULE_23; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 44){ goto RULE_23; }
+if(term1.atoms[1] != 46){ goto RULE_23; }
+if(term1.atoms[2] != 46){ goto RULE_23; }
+subtree = Term_ExtractSubterm(&term1, 3);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_23; }
+substitutions[28] = subtree;
+if(term1.atoms[4] != 38){ goto RULE_23; }
+subtree = Term_ExtractSubterm(&term1, 5);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_23; }
+substitutions[29] = subtree;
+if(term1.atoms[6] != 38){ goto RULE_23; }
+Term conclusion = {0};
+conclusion.atoms[0] = 44;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[28])){ goto RULE_23; }
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[29])){ goto RULE_23; }
+Truth conclusionTruth = Truth_StructuralDeduction(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_23:
+{
+if(doublePremise) { goto RULE_24; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_24; }
+if(term1.atoms[1] != 41){ goto RULE_24; }
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_24; }
+substitutions[31] = subtree;
+subtree = Term_ExtractSubterm(&term1, 3);
+if(substitutions[33].atoms[0]!=0 && !Term_Equal(&substitutions[33], &subtree)){ goto RULE_24; }
+substitutions[33] = subtree;
+subtree = Term_ExtractSubterm(&term1, 4);
+if(substitutions[34].atoms[0]!=0 && !Term_Equal(&substitutions[34], &subtree)){ goto RULE_24; }
+substitutions[34] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[33])){ goto RULE_24; }
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[31])){ goto RULE_24; }
+Truth conclusionTruth = Truth_StructuralDeduction(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_24:
+{
+if(doublePremise) { goto RULE_25; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_25; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_25; }
+substitutions[31] = subtree;
+if(term1.atoms[2] != 40){ goto RULE_25; }
+subtree = Term_ExtractSubterm(&term1, 5);
+if(substitutions[33].atoms[0]!=0 && !Term_Equal(&substitutions[33], &subtree)){ goto RULE_25; }
+substitutions[33] = subtree;
+subtree = Term_ExtractSubterm(&term1, 6);
+if(substitutions[34].atoms[0]!=0 && !Term_Equal(&substitutions[34], &subtree)){ goto RULE_25; }
+substitutions[34] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[31])){ goto RULE_25; }
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[33])){ goto RULE_25; }
+Truth conclusionTruth = Truth_StructuralDeduction(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_25:
+{
+if(doublePremise) { goto RULE_26; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_26; }
+if(term1.atoms[1] != 41){ goto RULE_26; }
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_26; }
+substitutions[31] = subtree;
+subtree = Term_ExtractSubterm(&term1, 3);
+if(substitutions[33].atoms[0]!=0 && !Term_Equal(&substitutions[33], &subtree)){ goto RULE_26; }
+substitutions[33] = subtree;
+subtree = Term_ExtractSubterm(&term1, 4);
+if(substitutions[34].atoms[0]!=0 && !Term_Equal(&substitutions[34], &subtree)){ goto RULE_26; }
+substitutions[34] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[34])){ goto RULE_26; }
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[31])){ goto RULE_26; }
+Truth conclusionTruth = Truth_StructuralDeduction(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_26:
+{
+if(doublePremise) { goto RULE_27; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_27; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_27; }
+substitutions[31] = subtree;
+if(term1.atoms[2] != 40){ goto RULE_27; }
+subtree = Term_ExtractSubterm(&term1, 5);
+if(substitutions[33].atoms[0]!=0 && !Term_Equal(&substitutions[33], &subtree)){ goto RULE_27; }
+substitutions[33] = subtree;
+subtree = Term_ExtractSubterm(&term1, 6);
+if(substitutions[34].atoms[0]!=0 && !Term_Equal(&substitutions[34], &subtree)){ goto RULE_27; }
+substitutions[34] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[31])){ goto RULE_27; }
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[34])){ goto RULE_27; }
+Truth conclusionTruth = Truth_StructuralDeduction(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_27:
+{
+if(!doublePremise) { goto RULE_28; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_28; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[34].atoms[0]!=0 && !Term_Equal(&substitutions[34], &subtree)){ goto RULE_28; }
+substitutions[34] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_28; }
+substitutions[31] = subtree;
+if(term2.atoms[0] != 43){ goto RULE_28; }
+subtree = Term_ExtractSubterm(&term2, 1);
+if(substitutions[33].atoms[0]!=0 && !Term_Equal(&substitutions[33], &subtree)){ goto RULE_28; }
+substitutions[33] = subtree;
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_28; }
+substitutions[31] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+conclusion.atoms[1] = 41;
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[31])){ goto RULE_28; }
+if(!Term_OverrideSubterm(&conclusion,3,&substitutions[33])){ goto RULE_28; }
+if(!Term_OverrideSubterm(&conclusion,4,&substitutions[34])){ goto RULE_28; }
+Truth conclusionTruth = Truth_Intersection(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_28:
+{
+if(!doublePremise) { goto RULE_29; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_29; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[33].atoms[0]!=0 && !Term_Equal(&substitutions[33], &subtree)){ goto RULE_29; }
+substitutions[33] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_29; }
+substitutions[31] = subtree;
+if(term2.atoms[0] != 43){ goto RULE_29; }
+subtree = Term_ExtractSubterm(&term2, 1);
+if(substitutions[34].atoms[0]!=0 && !Term_Equal(&substitutions[34], &subtree)){ goto RULE_29; }
+substitutions[34] = subtree;
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_29; }
+substitutions[31] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+conclusion.atoms[1] = 41;
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[31])){ goto RULE_29; }
+if(!Term_OverrideSubterm(&conclusion,3,&substitutions[33])){ goto RULE_29; }
+if(!Term_OverrideSubterm(&conclusion,4,&substitutions[34])){ goto RULE_29; }
+Truth conclusionTruth = Truth_Intersection(truth2,truth1);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_29:
+{
+if(!doublePremise) { goto RULE_30; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_30; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[34].atoms[0]!=0 && !Term_Equal(&substitutions[34], &subtree)){ goto RULE_30; }
+substitutions[34] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_30; }
+substitutions[31] = subtree;
+if(term2.atoms[0] != 43){ goto RULE_30; }
+subtree = Term_ExtractSubterm(&term2, 1);
+if(substitutions[33].atoms[0]!=0 && !Term_Equal(&substitutions[33], &subtree)){ goto RULE_30; }
+substitutions[33] = subtree;
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_30; }
+substitutions[31] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+conclusion.atoms[1] = 40;
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[31])){ goto RULE_30; }
+if(!Term_OverrideSubterm(&conclusion,3,&substitutions[33])){ goto RULE_30; }
+if(!Term_OverrideSubterm(&conclusion,4,&substitutions[34])){ goto RULE_30; }
+Truth conclusionTruth = Truth_Union(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_30:
+{
+if(!doublePremise) { goto RULE_31; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_31; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[33].atoms[0]!=0 && !Term_Equal(&substitutions[33], &subtree)){ goto RULE_31; }
+substitutions[33] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_31; }
+substitutions[31] = subtree;
+if(term2.atoms[0] != 43){ goto RULE_31; }
+subtree = Term_ExtractSubterm(&term2, 1);
+if(substitutions[34].atoms[0]!=0 && !Term_Equal(&substitutions[34], &subtree)){ goto RULE_31; }
+substitutions[34] = subtree;
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_31; }
+substitutions[31] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+conclusion.atoms[1] = 40;
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[31])){ goto RULE_31; }
+if(!Term_OverrideSubterm(&conclusion,3,&substitutions[33])){ goto RULE_31; }
+if(!Term_OverrideSubterm(&conclusion,4,&substitutions[34])){ goto RULE_31; }
+Truth conclusionTruth = Truth_Union(truth2,truth1);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_31:
+{
+if(!doublePremise) { goto RULE_32; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_32; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[34].atoms[0]!=0 && !Term_Equal(&substitutions[34], &subtree)){ goto RULE_32; }
+substitutions[34] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_32; }
+substitutions[31] = subtree;
+if(term2.atoms[0] != 43){ goto RULE_32; }
+subtree = Term_ExtractSubterm(&term2, 1);
+if(substitutions[33].atoms[0]!=0 && !Term_Equal(&substitutions[33], &subtree)){ goto RULE_32; }
+substitutions[33] = subtree;
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_32; }
+substitutions[31] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+conclusion.atoms[1] = 54;
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[31])){ goto RULE_32; }
+if(!Term_OverrideSubterm(&conclusion,3,&substitutions[33])){ goto RULE_32; }
+if(!Term_OverrideSubterm(&conclusion,4,&substitutions[34])){ goto RULE_32; }
+Truth conclusionTruth = Truth_Difference(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_32:
+{
+if(!doublePremise) { goto RULE_33; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_33; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[33].atoms[0]!=0 && !Term_Equal(&substitutions[33], &subtree)){ goto RULE_33; }
+substitutions[33] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_33; }
+substitutions[31] = subtree;
+if(term2.atoms[0] != 43){ goto RULE_33; }
+subtree = Term_ExtractSubterm(&term2, 1);
+if(substitutions[34].atoms[0]!=0 && !Term_Equal(&substitutions[34], &subtree)){ goto RULE_33; }
+substitutions[34] = subtree;
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_33; }
+substitutions[31] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+conclusion.atoms[1] = 54;
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[31])){ goto RULE_33; }
+if(!Term_OverrideSubterm(&conclusion,3,&substitutions[33])){ goto RULE_33; }
+if(!Term_OverrideSubterm(&conclusion,4,&substitutions[34])){ goto RULE_33; }
+Truth conclusionTruth = Truth_Difference(truth2,truth1);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_33:
+{
+if(!doublePremise) { goto RULE_34; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_34; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_34; }
+substitutions[31] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[34].atoms[0]!=0 && !Term_Equal(&substitutions[34], &subtree)){ goto RULE_34; }
+substitutions[34] = subtree;
+if(term2.atoms[0] != 43){ goto RULE_34; }
+subtree = Term_ExtractSubterm(&term2, 1);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_34; }
+substitutions[31] = subtree;
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[33].atoms[0]!=0 && !Term_Equal(&substitutions[33], &subtree)){ goto RULE_34; }
+substitutions[33] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[31])){ goto RULE_34; }
+conclusion.atoms[2] = 40;
+if(!Term_OverrideSubterm(&conclusion,5,&substitutions[34])){ goto RULE_34; }
+if(!Term_OverrideSubterm(&conclusion,6,&substitutions[33])){ goto RULE_34; }
+Truth conclusionTruth = Truth_Intersection(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_34:
+{
+if(!doublePremise) { goto RULE_35; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_35; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_35; }
+substitutions[31] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[33].atoms[0]!=0 && !Term_Equal(&substitutions[33], &subtree)){ goto RULE_35; }
+substitutions[33] = subtree;
+if(term2.atoms[0] != 43){ goto RULE_35; }
+subtree = Term_ExtractSubterm(&term2, 1);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_35; }
+substitutions[31] = subtree;
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[34].atoms[0]!=0 && !Term_Equal(&substitutions[34], &subtree)){ goto RULE_35; }
+substitutions[34] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[31])){ goto RULE_35; }
+conclusion.atoms[2] = 40;
+if(!Term_OverrideSubterm(&conclusion,5,&substitutions[34])){ goto RULE_35; }
+if(!Term_OverrideSubterm(&conclusion,6,&substitutions[33])){ goto RULE_35; }
+Truth conclusionTruth = Truth_Intersection(truth2,truth1);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_35:
+{
+if(!doublePremise) { goto RULE_36; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_36; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_36; }
+substitutions[31] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[34].atoms[0]!=0 && !Term_Equal(&substitutions[34], &subtree)){ goto RULE_36; }
+substitutions[34] = subtree;
+if(term2.atoms[0] != 43){ goto RULE_36; }
+subtree = Term_ExtractSubterm(&term2, 1);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_36; }
+substitutions[31] = subtree;
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[33].atoms[0]!=0 && !Term_Equal(&substitutions[33], &subtree)){ goto RULE_36; }
+substitutions[33] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[31])){ goto RULE_36; }
+conclusion.atoms[2] = 41;
+if(!Term_OverrideSubterm(&conclusion,5,&substitutions[34])){ goto RULE_36; }
+if(!Term_OverrideSubterm(&conclusion,6,&substitutions[33])){ goto RULE_36; }
+Truth conclusionTruth = Truth_Union(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_36:
+{
+if(!doublePremise) { goto RULE_37; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_37; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_37; }
+substitutions[31] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[33].atoms[0]!=0 && !Term_Equal(&substitutions[33], &subtree)){ goto RULE_37; }
+substitutions[33] = subtree;
+if(term2.atoms[0] != 43){ goto RULE_37; }
+subtree = Term_ExtractSubterm(&term2, 1);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_37; }
+substitutions[31] = subtree;
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[34].atoms[0]!=0 && !Term_Equal(&substitutions[34], &subtree)){ goto RULE_37; }
+substitutions[34] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[31])){ goto RULE_37; }
+conclusion.atoms[2] = 41;
+if(!Term_OverrideSubterm(&conclusion,5,&substitutions[34])){ goto RULE_37; }
+if(!Term_OverrideSubterm(&conclusion,6,&substitutions[33])){ goto RULE_37; }
+Truth conclusionTruth = Truth_Union(truth2,truth1);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_37:
+{
+if(!doublePremise) { goto RULE_38; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_38; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_38; }
+substitutions[31] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[34].atoms[0]!=0 && !Term_Equal(&substitutions[34], &subtree)){ goto RULE_38; }
+substitutions[34] = subtree;
+if(term2.atoms[0] != 43){ goto RULE_38; }
+subtree = Term_ExtractSubterm(&term2, 1);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_38; }
+substitutions[31] = subtree;
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[33].atoms[0]!=0 && !Term_Equal(&substitutions[33], &subtree)){ goto RULE_38; }
+substitutions[33] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[31])){ goto RULE_38; }
+conclusion.atoms[2] = 51;
+if(!Term_OverrideSubterm(&conclusion,5,&substitutions[34])){ goto RULE_38; }
+if(!Term_OverrideSubterm(&conclusion,6,&substitutions[33])){ goto RULE_38; }
+Truth conclusionTruth = Truth_Difference(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_38:
+{
+if(!doublePremise) { goto RULE_39; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_39; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_39; }
+substitutions[31] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[33].atoms[0]!=0 && !Term_Equal(&substitutions[33], &subtree)){ goto RULE_39; }
+substitutions[33] = subtree;
+if(term2.atoms[0] != 43){ goto RULE_39; }
+subtree = Term_ExtractSubterm(&term2, 1);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_39; }
+substitutions[31] = subtree;
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[34].atoms[0]!=0 && !Term_Equal(&substitutions[34], &subtree)){ goto RULE_39; }
+substitutions[34] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[31])){ goto RULE_39; }
+conclusion.atoms[2] = 51;
+if(!Term_OverrideSubterm(&conclusion,5,&substitutions[34])){ goto RULE_39; }
+if(!Term_OverrideSubterm(&conclusion,6,&substitutions[33])){ goto RULE_39; }
+Truth conclusionTruth = Truth_Difference(truth2,truth1);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_39:
+{
+if(doublePremise) { goto RULE_40; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_40; }
+if(term1.atoms[1] != 39){ goto RULE_40; }
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[32].atoms[0]!=0 && !Term_Equal(&substitutions[32], &subtree)){ goto RULE_40; }
+substitutions[32] = subtree;
+subtree = Term_ExtractSubterm(&term1, 3);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_40; }
+substitutions[28] = subtree;
+subtree = Term_ExtractSubterm(&term1, 4);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_40; }
+substitutions[29] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[28])){ goto RULE_40; }
+conclusion.atoms[2] = 48;
+if(!Term_OverrideSubterm(&conclusion,5,&substitutions[32])){ goto RULE_40; }
+if(!Term_OverrideSubterm(&conclusion,6,&substitutions[29])){ goto RULE_40; }
+Truth conclusionTruth = Truth_StructuralDeduction(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_40:
+{
+if(doublePremise) { goto RULE_41; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_41; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_41; }
+substitutions[28] = subtree;
+if(term1.atoms[2] != 48){ goto RULE_41; }
+subtree = Term_ExtractSubterm(&term1, 5);
+if(substitutions[32].atoms[0]!=0 && !Term_Equal(&substitutions[32], &subtree)){ goto RULE_41; }
+substitutions[32] = subtree;
+subtree = Term_ExtractSubterm(&term1, 6);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_41; }
+substitutions[29] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+conclusion.atoms[1] = 39;
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[32])){ goto RULE_41; }
+if(!Term_OverrideSubterm(&conclusion,3,&substitutions[28])){ goto RULE_41; }
+if(!Term_OverrideSubterm(&conclusion,4,&substitutions[29])){ goto RULE_41; }
+Truth conclusionTruth = Truth_StructuralDeduction(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_41:
+{
+if(doublePremise) { goto RULE_42; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_42; }
+if(term1.atoms[1] != 39){ goto RULE_42; }
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[32].atoms[0]!=0 && !Term_Equal(&substitutions[32], &subtree)){ goto RULE_42; }
+substitutions[32] = subtree;
+subtree = Term_ExtractSubterm(&term1, 3);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_42; }
+substitutions[28] = subtree;
+subtree = Term_ExtractSubterm(&term1, 4);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_42; }
+substitutions[29] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[29])){ goto RULE_42; }
+conclusion.atoms[2] = 52;
+if(!Term_OverrideSubterm(&conclusion,5,&substitutions[32])){ goto RULE_42; }
+if(!Term_OverrideSubterm(&conclusion,6,&substitutions[28])){ goto RULE_42; }
+Truth conclusionTruth = Truth_StructuralDeduction(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_42:
+{
+if(doublePremise) { goto RULE_43; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_43; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_43; }
+substitutions[29] = subtree;
+if(term1.atoms[2] != 52){ goto RULE_43; }
+subtree = Term_ExtractSubterm(&term1, 5);
+if(substitutions[32].atoms[0]!=0 && !Term_Equal(&substitutions[32], &subtree)){ goto RULE_43; }
+substitutions[32] = subtree;
+subtree = Term_ExtractSubterm(&term1, 6);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_43; }
+substitutions[28] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+conclusion.atoms[1] = 39;
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[32])){ goto RULE_43; }
+if(!Term_OverrideSubterm(&conclusion,3,&substitutions[28])){ goto RULE_43; }
+if(!Term_OverrideSubterm(&conclusion,4,&substitutions[29])){ goto RULE_43; }
+Truth conclusionTruth = Truth_StructuralDeduction(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_43:
+{
+if(doublePremise) { goto RULE_44; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_44; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[32].atoms[0]!=0 && !Term_Equal(&substitutions[32], &subtree)){ goto RULE_44; }
+substitutions[32] = subtree;
+if(term1.atoms[2] != 39){ goto RULE_44; }
+subtree = Term_ExtractSubterm(&term1, 5);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_44; }
+substitutions[28] = subtree;
+subtree = Term_ExtractSubterm(&term1, 6);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_44; }
+substitutions[29] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+conclusion.atoms[1] = 49;
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[28])){ goto RULE_44; }
+if(!Term_OverrideSubterm(&conclusion,3,&substitutions[32])){ goto RULE_44; }
+if(!Term_OverrideSubterm(&conclusion,4,&substitutions[29])){ goto RULE_44; }
+Truth conclusionTruth = Truth_StructuralDeduction(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_44:
+{
+if(doublePremise) { goto RULE_45; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_45; }
+if(term1.atoms[1] != 49){ goto RULE_45; }
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_45; }
+substitutions[28] = subtree;
+subtree = Term_ExtractSubterm(&term1, 3);
+if(substitutions[32].atoms[0]!=0 && !Term_Equal(&substitutions[32], &subtree)){ goto RULE_45; }
+substitutions[32] = subtree;
+subtree = Term_ExtractSubterm(&term1, 4);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_45; }
+substitutions[29] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[32])){ goto RULE_45; }
+conclusion.atoms[2] = 39;
+if(!Term_OverrideSubterm(&conclusion,5,&substitutions[28])){ goto RULE_45; }
+if(!Term_OverrideSubterm(&conclusion,6,&substitutions[29])){ goto RULE_45; }
+Truth conclusionTruth = Truth_StructuralDeduction(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_45:
+{
+if(doublePremise) { goto RULE_46; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_46; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[32].atoms[0]!=0 && !Term_Equal(&substitutions[32], &subtree)){ goto RULE_46; }
+substitutions[32] = subtree;
+if(term1.atoms[2] != 39){ goto RULE_46; }
+subtree = Term_ExtractSubterm(&term1, 5);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_46; }
+substitutions[28] = subtree;
+subtree = Term_ExtractSubterm(&term1, 6);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_46; }
+substitutions[29] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+conclusion.atoms[1] = 53;
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[29])){ goto RULE_46; }
+if(!Term_OverrideSubterm(&conclusion,3,&substitutions[32])){ goto RULE_46; }
+if(!Term_OverrideSubterm(&conclusion,4,&substitutions[28])){ goto RULE_46; }
+Truth conclusionTruth = Truth_StructuralDeduction(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_46:
+{
+if(doublePremise) { goto RULE_47; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_47; }
+if(term1.atoms[1] != 53){ goto RULE_47; }
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_47; }
+substitutions[29] = subtree;
+subtree = Term_ExtractSubterm(&term1, 3);
+if(substitutions[32].atoms[0]!=0 && !Term_Equal(&substitutions[32], &subtree)){ goto RULE_47; }
+substitutions[32] = subtree;
+subtree = Term_ExtractSubterm(&term1, 4);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_47; }
+substitutions[28] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[32])){ goto RULE_47; }
+conclusion.atoms[2] = 39;
+if(!Term_OverrideSubterm(&conclusion,5,&substitutions[28])){ goto RULE_47; }
+if(!Term_OverrideSubterm(&conclusion,6,&substitutions[29])){ goto RULE_47; }
+Truth conclusionTruth = Truth_StructuralDeduction(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_47:
+{
+if(doublePremise) { goto RULE_48; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 56){ goto RULE_48; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_48; }
+substitutions[28] = subtree;
+if(term1.atoms[2] != 38){ goto RULE_48; }
+Term conclusion = {0};
+if(!Term_OverrideSubterm(&conclusion,0,&substitutions[28])){ goto RULE_48; }
+Truth conclusionTruth = Truth_Negation(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_48:
+{
+if(doublePremise) { goto RULE_49; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 42){ goto RULE_49; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_49; }
+substitutions[28] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_49; }
+substitutions[29] = subtree;
+Term conclusion = {0};
+if(!Term_OverrideSubterm(&conclusion,0,&substitutions[28])){ goto RULE_49; }
+Truth conclusionTruth = Truth_StructuralDeduction(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_49:
+{
+if(doublePremise) { goto RULE_50; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 42){ goto RULE_50; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_50; }
+substitutions[28] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_50; }
+substitutions[29] = subtree;
+Term conclusion = {0};
+if(!Term_OverrideSubterm(&conclusion,0,&substitutions[29])){ goto RULE_50; }
+Truth conclusionTruth = Truth_StructuralDeduction(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_50:
+{
+if(!doublePremise) { goto RULE_51; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_51; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_51; }
+substitutions[31] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_51; }
+substitutions[28] = subtree;
+if(term2.atoms[0] != 43){ goto RULE_51; }
+subtree = Term_ExtractSubterm(&term2, 1);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_51; }
+substitutions[31] = subtree;
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_51; }
+substitutions[29] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 45;
+conclusion.atoms[1] = 43;
+conclusion.atoms[2] = 43;
+conclusion.atoms[3] = 2;
+if(!Term_OverrideSubterm(&conclusion,4,&substitutions[28])){ goto RULE_51; }
+conclusion.atoms[5] = 2;
+if(!Term_OverrideSubterm(&conclusion,6,&substitutions[29])){ goto RULE_51; }
+Truth conclusionTruth = Truth_Induction(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_51:
+{
+if(!doublePremise) { goto RULE_52; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_52; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_52; }
+substitutions[31] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_52; }
+substitutions[29] = subtree;
+if(term2.atoms[0] != 43){ goto RULE_52; }
+subtree = Term_ExtractSubterm(&term2, 1);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_52; }
+substitutions[31] = subtree;
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_52; }
+substitutions[28] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 45;
+conclusion.atoms[1] = 43;
+conclusion.atoms[2] = 43;
+conclusion.atoms[3] = 2;
+if(!Term_OverrideSubterm(&conclusion,4,&substitutions[28])){ goto RULE_52; }
+conclusion.atoms[5] = 2;
+if(!Term_OverrideSubterm(&conclusion,6,&substitutions[29])){ goto RULE_52; }
+Truth conclusionTruth = Truth_Induction(truth2,truth1);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_52:
+{
+if(!doublePremise) { goto RULE_53; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_53; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_53; }
+substitutions[31] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_53; }
+substitutions[28] = subtree;
+if(term2.atoms[0] != 43){ goto RULE_53; }
+subtree = Term_ExtractSubterm(&term2, 1);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_53; }
+substitutions[31] = subtree;
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_53; }
+substitutions[29] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 45;
+conclusion.atoms[1] = 43;
+conclusion.atoms[2] = 43;
+conclusion.atoms[3] = 2;
+if(!Term_OverrideSubterm(&conclusion,4,&substitutions[29])){ goto RULE_53; }
+conclusion.atoms[5] = 2;
+if(!Term_OverrideSubterm(&conclusion,6,&substitutions[28])){ goto RULE_53; }
+Truth conclusionTruth = Truth_Induction(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_53:
+{
+if(!doublePremise) { goto RULE_54; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_54; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_54; }
+substitutions[31] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_54; }
+substitutions[29] = subtree;
+if(term2.atoms[0] != 43){ goto RULE_54; }
+subtree = Term_ExtractSubterm(&term2, 1);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_54; }
+substitutions[31] = subtree;
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_54; }
+substitutions[28] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 45;
+conclusion.atoms[1] = 43;
+conclusion.atoms[2] = 43;
+conclusion.atoms[3] = 2;
+if(!Term_OverrideSubterm(&conclusion,4,&substitutions[29])){ goto RULE_54; }
+conclusion.atoms[5] = 2;
+if(!Term_OverrideSubterm(&conclusion,6,&substitutions[28])){ goto RULE_54; }
+Truth conclusionTruth = Truth_Induction(truth2,truth1);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_54:
+{
+if(!doublePremise) { goto RULE_55; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_55; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_55; }
+substitutions[28] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_55; }
+substitutions[31] = subtree;
+if(term2.atoms[0] != 43){ goto RULE_55; }
+subtree = Term_ExtractSubterm(&term2, 1);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_55; }
+substitutions[29] = subtree;
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_55; }
+substitutions[31] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 45;
+conclusion.atoms[1] = 43;
+conclusion.atoms[2] = 43;
+if(!Term_OverrideSubterm(&conclusion,3,&substitutions[28])){ goto RULE_55; }
+conclusion.atoms[4] = 2;
+if(!Term_OverrideSubterm(&conclusion,5,&substitutions[29])){ goto RULE_55; }
+conclusion.atoms[6] = 2;
+Truth conclusionTruth = Truth_Induction(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_55:
+{
+if(!doublePremise) { goto RULE_56; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_56; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_56; }
+substitutions[29] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_56; }
+substitutions[31] = subtree;
+if(term2.atoms[0] != 43){ goto RULE_56; }
+subtree = Term_ExtractSubterm(&term2, 1);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_56; }
+substitutions[28] = subtree;
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_56; }
+substitutions[31] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 45;
+conclusion.atoms[1] = 43;
+conclusion.atoms[2] = 43;
+if(!Term_OverrideSubterm(&conclusion,3,&substitutions[28])){ goto RULE_56; }
+conclusion.atoms[4] = 2;
+if(!Term_OverrideSubterm(&conclusion,5,&substitutions[29])){ goto RULE_56; }
+conclusion.atoms[6] = 2;
+Truth conclusionTruth = Truth_Induction(truth2,truth1);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_56:
+{
+if(!doublePremise) { goto RULE_57; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_57; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_57; }
+substitutions[28] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_57; }
+substitutions[31] = subtree;
+if(term2.atoms[0] != 43){ goto RULE_57; }
+subtree = Term_ExtractSubterm(&term2, 1);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_57; }
+substitutions[29] = subtree;
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_57; }
+substitutions[31] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 45;
+conclusion.atoms[1] = 43;
+conclusion.atoms[2] = 43;
+if(!Term_OverrideSubterm(&conclusion,3,&substitutions[29])){ goto RULE_57; }
+conclusion.atoms[4] = 2;
+if(!Term_OverrideSubterm(&conclusion,5,&substitutions[28])){ goto RULE_57; }
+conclusion.atoms[6] = 2;
+Truth conclusionTruth = Truth_Induction(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_57:
+{
+if(!doublePremise) { goto RULE_58; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_58; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_58; }
+substitutions[29] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_58; }
+substitutions[31] = subtree;
+if(term2.atoms[0] != 43){ goto RULE_58; }
+subtree = Term_ExtractSubterm(&term2, 1);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_58; }
+substitutions[28] = subtree;
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_58; }
+substitutions[31] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 45;
+conclusion.atoms[1] = 43;
+conclusion.atoms[2] = 43;
+if(!Term_OverrideSubterm(&conclusion,3,&substitutions[29])){ goto RULE_58; }
+conclusion.atoms[4] = 2;
+if(!Term_OverrideSubterm(&conclusion,5,&substitutions[28])){ goto RULE_58; }
+conclusion.atoms[6] = 2;
+Truth conclusionTruth = Truth_Induction(truth2,truth1);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_58:
+{
+if(!doublePremise) { goto RULE_59; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_59; }
+if(term1.atoms[1] != 39){ goto RULE_59; }
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[32].atoms[0]!=0 && !Term_Equal(&substitutions[32], &subtree)){ goto RULE_59; }
+substitutions[32] = subtree;
+subtree = Term_ExtractSubterm(&term1, 3);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_59; }
+substitutions[28] = subtree;
+subtree = Term_ExtractSubterm(&term1, 4);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_59; }
+substitutions[29] = subtree;
+if(term2.atoms[0] != 43){ goto RULE_59; }
+if(term2.atoms[1] != 39){ goto RULE_59; }
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[32].atoms[0]!=0 && !Term_Equal(&substitutions[32], &subtree)){ goto RULE_59; }
+substitutions[32] = subtree;
+subtree = Term_ExtractSubterm(&term2, 3);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_59; }
+substitutions[29] = subtree;
+subtree = Term_ExtractSubterm(&term2, 4);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_59; }
+substitutions[28] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 45;
+conclusion.atoms[1] = 43;
+conclusion.atoms[2] = 43;
+conclusion.atoms[3] = 39;
+if(!Term_OverrideSubterm(&conclusion,4,&substitutions[32])){ goto RULE_59; }
+conclusion.atoms[5] = 39;
+if(!Term_OverrideSubterm(&conclusion,6,&substitutions[32])){ goto RULE_59; }
+conclusion.atoms[7] = 2;
+conclusion.atoms[8] = 5;
+conclusion.atoms[11] = 5;
+conclusion.atoms[12] = 2;
+Truth conclusionTruth = Truth_Induction(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_59:
+{
+if(!doublePremise) { goto RULE_60; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_60; }
+if(term1.atoms[1] != 39){ goto RULE_60; }
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[32].atoms[0]!=0 && !Term_Equal(&substitutions[32], &subtree)){ goto RULE_60; }
+substitutions[32] = subtree;
+subtree = Term_ExtractSubterm(&term1, 3);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_60; }
+substitutions[29] = subtree;
+subtree = Term_ExtractSubterm(&term1, 4);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_60; }
+substitutions[28] = subtree;
+if(term2.atoms[0] != 43){ goto RULE_60; }
+if(term2.atoms[1] != 39){ goto RULE_60; }
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[32].atoms[0]!=0 && !Term_Equal(&substitutions[32], &subtree)){ goto RULE_60; }
+substitutions[32] = subtree;
+subtree = Term_ExtractSubterm(&term2, 3);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_60; }
+substitutions[28] = subtree;
+subtree = Term_ExtractSubterm(&term2, 4);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_60; }
+substitutions[29] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 45;
+conclusion.atoms[1] = 43;
+conclusion.atoms[2] = 43;
+conclusion.atoms[3] = 39;
+if(!Term_OverrideSubterm(&conclusion,4,&substitutions[32])){ goto RULE_60; }
+conclusion.atoms[5] = 39;
+if(!Term_OverrideSubterm(&conclusion,6,&substitutions[32])){ goto RULE_60; }
+conclusion.atoms[7] = 2;
+conclusion.atoms[8] = 5;
+conclusion.atoms[11] = 5;
+conclusion.atoms[12] = 2;
+Truth conclusionTruth = Truth_Induction(truth2,truth1);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_60:
+{
+if(!doublePremise) { goto RULE_61; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_61; }
+if(term1.atoms[1] != 39){ goto RULE_61; }
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[32].atoms[0]!=0 && !Term_Equal(&substitutions[32], &subtree)){ goto RULE_61; }
+substitutions[32] = subtree;
+subtree = Term_ExtractSubterm(&term1, 3);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_61; }
+substitutions[28] = subtree;
+subtree = Term_ExtractSubterm(&term1, 4);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_61; }
+substitutions[29] = subtree;
+if(term2.atoms[0] != 56){ goto RULE_61; }
+if(term2.atoms[1] != 43){ goto RULE_61; }
+if(term2.atoms[2] != 38){ goto RULE_61; }
+if(term2.atoms[3] != 39){ goto RULE_61; }
+subtree = Term_ExtractSubterm(&term2, 4);
+if(substitutions[32].atoms[0]!=0 && !Term_Equal(&substitutions[32], &subtree)){ goto RULE_61; }
+substitutions[32] = subtree;
+subtree = Term_ExtractSubterm(&term2, 7);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_61; }
+substitutions[29] = subtree;
+subtree = Term_ExtractSubterm(&term2, 8);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_61; }
+substitutions[28] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 45;
+conclusion.atoms[1] = 43;
+conclusion.atoms[2] = 56;
+conclusion.atoms[3] = 39;
+if(!Term_OverrideSubterm(&conclusion,4,&substitutions[32])){ goto RULE_61; }
+conclusion.atoms[5] = 43;
+conclusion.atoms[6] = 38;
+conclusion.atoms[7] = 2;
+conclusion.atoms[8] = 5;
+conclusion.atoms[11] = 39;
+if(!Term_OverrideSubterm(&conclusion,12,&substitutions[32])){ goto RULE_61; }
+conclusion.atoms[23] = 5;
+conclusion.atoms[24] = 2;
+Truth conclusionTruth = Truth_Induction(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_61:
+{
+if(!doublePremise) { goto RULE_62; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 56){ goto RULE_62; }
+if(term1.atoms[1] != 43){ goto RULE_62; }
+if(term1.atoms[2] != 38){ goto RULE_62; }
+if(term1.atoms[3] != 39){ goto RULE_62; }
+subtree = Term_ExtractSubterm(&term1, 4);
+if(substitutions[32].atoms[0]!=0 && !Term_Equal(&substitutions[32], &subtree)){ goto RULE_62; }
+substitutions[32] = subtree;
+subtree = Term_ExtractSubterm(&term1, 7);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_62; }
+substitutions[29] = subtree;
+subtree = Term_ExtractSubterm(&term1, 8);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_62; }
+substitutions[28] = subtree;
+if(term2.atoms[0] != 43){ goto RULE_62; }
+if(term2.atoms[1] != 39){ goto RULE_62; }
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[32].atoms[0]!=0 && !Term_Equal(&substitutions[32], &subtree)){ goto RULE_62; }
+substitutions[32] = subtree;
+subtree = Term_ExtractSubterm(&term2, 3);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_62; }
+substitutions[28] = subtree;
+subtree = Term_ExtractSubterm(&term2, 4);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_62; }
+substitutions[29] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 45;
+conclusion.atoms[1] = 43;
+conclusion.atoms[2] = 56;
+conclusion.atoms[3] = 39;
+if(!Term_OverrideSubterm(&conclusion,4,&substitutions[32])){ goto RULE_62; }
+conclusion.atoms[5] = 43;
+conclusion.atoms[6] = 38;
+conclusion.atoms[7] = 2;
+conclusion.atoms[8] = 5;
+conclusion.atoms[11] = 39;
+if(!Term_OverrideSubterm(&conclusion,12,&substitutions[32])){ goto RULE_62; }
+conclusion.atoms[23] = 5;
+conclusion.atoms[24] = 2;
+Truth conclusionTruth = Truth_Induction(truth2,truth1);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_62:
+{
+if(!doublePremise) { goto RULE_63; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_63; }
+if(term1.atoms[1] != 41){ goto RULE_63; }
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[32].atoms[0]!=0 && !Term_Equal(&substitutions[32], &subtree)){ goto RULE_63; }
+substitutions[32] = subtree;
+if(term1.atoms[3] != 39){ goto RULE_63; }
+if(term1.atoms[4] != 39){ goto RULE_63; }
+subtree = Term_ExtractSubterm(&term1, 7);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_63; }
+substitutions[28] = subtree;
+subtree = Term_ExtractSubterm(&term1, 8);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_63; }
+substitutions[29] = subtree;
+subtree = Term_ExtractSubterm(&term1, 9);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_63; }
+substitutions[29] = subtree;
+subtree = Term_ExtractSubterm(&term1, 10);
+if(substitutions[30].atoms[0]!=0 && !Term_Equal(&substitutions[30], &subtree)){ goto RULE_63; }
+substitutions[30] = subtree;
+if(term2.atoms[0] != 43){ goto RULE_63; }
+if(term2.atoms[1] != 39){ goto RULE_63; }
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[32].atoms[0]!=0 && !Term_Equal(&substitutions[32], &subtree)){ goto RULE_63; }
+substitutions[32] = subtree;
+subtree = Term_ExtractSubterm(&term2, 3);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_63; }
+substitutions[28] = subtree;
+subtree = Term_ExtractSubterm(&term2, 4);
+if(substitutions[30].atoms[0]!=0 && !Term_Equal(&substitutions[30], &subtree)){ goto RULE_63; }
+substitutions[30] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 45;
+conclusion.atoms[1] = 43;
+conclusion.atoms[2] = 43;
+conclusion.atoms[3] = 41;
+if(!Term_OverrideSubterm(&conclusion,4,&substitutions[32])){ goto RULE_63; }
+conclusion.atoms[5] = 39;
+if(!Term_OverrideSubterm(&conclusion,6,&substitutions[32])){ goto RULE_63; }
+conclusion.atoms[7] = 39;
+conclusion.atoms[8] = 39;
+conclusion.atoms[11] = 2;
+conclusion.atoms[12] = 5;
+conclusion.atoms[15] = 2;
+conclusion.atoms[16] = 1;
+conclusion.atoms[17] = 1;
+conclusion.atoms[18] = 5;
+Truth conclusionTruth = Truth_Induction(truth1,truth2);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_63:
+{
+if(!doublePremise) { goto RULE_64; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_64; }
+if(term1.atoms[1] != 39){ goto RULE_64; }
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[32].atoms[0]!=0 && !Term_Equal(&substitutions[32], &subtree)){ goto RULE_64; }
+substitutions[32] = subtree;
+subtree = Term_ExtractSubterm(&term1, 3);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_64; }
+substitutions[28] = subtree;
+subtree = Term_ExtractSubterm(&term1, 4);
+if(substitutions[30].atoms[0]!=0 && !Term_Equal(&substitutions[30], &subtree)){ goto RULE_64; }
+substitutions[30] = subtree;
+if(term2.atoms[0] != 43){ goto RULE_64; }
+if(term2.atoms[1] != 41){ goto RULE_64; }
+subtree = Term_ExtractSubterm(&term2, 2);
+if(substitutions[32].atoms[0]!=0 && !Term_Equal(&substitutions[32], &subtree)){ goto RULE_64; }
+substitutions[32] = subtree;
+if(term2.atoms[3] != 39){ goto RULE_64; }
+if(term2.atoms[4] != 39){ goto RULE_64; }
+subtree = Term_ExtractSubterm(&term2, 7);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_64; }
+substitutions[28] = subtree;
+subtree = Term_ExtractSubterm(&term2, 8);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_64; }
+substitutions[29] = subtree;
+subtree = Term_ExtractSubterm(&term2, 9);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_64; }
+substitutions[29] = subtree;
+subtree = Term_ExtractSubterm(&term2, 10);
+if(substitutions[30].atoms[0]!=0 && !Term_Equal(&substitutions[30], &subtree)){ goto RULE_64; }
+substitutions[30] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 45;
+conclusion.atoms[1] = 43;
+conclusion.atoms[2] = 43;
+conclusion.atoms[3] = 41;
+if(!Term_OverrideSubterm(&conclusion,4,&substitutions[32])){ goto RULE_64; }
+conclusion.atoms[5] = 39;
+if(!Term_OverrideSubterm(&conclusion,6,&substitutions[32])){ goto RULE_64; }
+conclusion.atoms[7] = 39;
+conclusion.atoms[8] = 39;
+conclusion.atoms[11] = 2;
+conclusion.atoms[12] = 5;
+conclusion.atoms[15] = 2;
+conclusion.atoms[16] = 1;
+conclusion.atoms[17] = 1;
+conclusion.atoms[18] = 5;
+Truth conclusionTruth = Truth_Induction(truth2,truth1);
+NAL_DerivedEvent(RuleTable_Reduce(conclusion, false), conclusionOccurrence, conclusionTruth, conclusionStamp, currentTime, parentPriority, conceptPriority, 0, validation_concept, validation_cid);}
+
+RULE_64:;
+}
+Term RuleTable_Reduce(Term term1, bool doublePremise)
+{
+goto RULE_64;
+RULE_64:
+{
+if(doublePremise) { goto RULE_65; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_65; }
+if(term1.atoms[1] != 40){ goto RULE_65; }
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_65; }
+substitutions[31] = subtree;
+subtree = Term_ExtractSubterm(&term1, 3);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_65; }
+substitutions[28] = subtree;
+subtree = Term_ExtractSubterm(&term1, 4);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_65; }
+substitutions[28] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[28])){ goto RULE_65; }
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[31])){ goto RULE_65; }
+IN_DEBUG( fputs("Reduced: ", stdout); Narsese_PrintTerm(&term1); fputs(" -> ", stdout); Narsese_PrintTerm(&conclusion); puts(""); ) 
+return conclusion;
+}
+RULE_65:
+{
+if(doublePremise) { goto RULE_66; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_66; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_66; }
+substitutions[31] = subtree;
+if(term1.atoms[2] != 40){ goto RULE_66; }
+subtree = Term_ExtractSubterm(&term1, 5);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_66; }
+substitutions[28] = subtree;
+subtree = Term_ExtractSubterm(&term1, 6);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_66; }
+substitutions[28] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[31])){ goto RULE_66; }
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[28])){ goto RULE_66; }
+IN_DEBUG( fputs("Reduced: ", stdout); Narsese_PrintTerm(&term1); fputs(" -> ", stdout); Narsese_PrintTerm(&conclusion); puts(""); ) 
+return conclusion;
+}
+RULE_66:
+{
+if(doublePremise) { goto RULE_67; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_67; }
+if(term1.atoms[1] != 41){ goto RULE_67; }
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_67; }
+substitutions[31] = subtree;
+subtree = Term_ExtractSubterm(&term1, 3);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_67; }
+substitutions[28] = subtree;
+subtree = Term_ExtractSubterm(&term1, 4);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_67; }
+substitutions[28] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[28])){ goto RULE_67; }
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[31])){ goto RULE_67; }
+IN_DEBUG( fputs("Reduced: ", stdout); Narsese_PrintTerm(&term1); fputs(" -> ", stdout); Narsese_PrintTerm(&conclusion); puts(""); ) 
+return conclusion;
+}
+RULE_67:
+{
+if(doublePremise) { goto RULE_68; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_68; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_68; }
+substitutions[31] = subtree;
+if(term1.atoms[2] != 41){ goto RULE_68; }
+subtree = Term_ExtractSubterm(&term1, 5);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_68; }
+substitutions[28] = subtree;
+subtree = Term_ExtractSubterm(&term1, 6);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_68; }
+substitutions[28] = subtree;
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[31])){ goto RULE_68; }
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[28])){ goto RULE_68; }
+IN_DEBUG( fputs("Reduced: ", stdout); Narsese_PrintTerm(&term1); fputs(" -> ", stdout); Narsese_PrintTerm(&conclusion); puts(""); ) 
+return conclusion;
+}
+RULE_68:
+{
+if(doublePremise) { goto RULE_69; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 42){ goto RULE_69; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_69; }
+substitutions[28] = subtree;
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_69; }
+substitutions[28] = subtree;
+Term conclusion = {0};
+if(!Term_OverrideSubterm(&conclusion,0,&substitutions[28])){ goto RULE_69; }
+IN_DEBUG( fputs("Reduced: ", stdout); Narsese_PrintTerm(&term1); fputs(" -> ", stdout); Narsese_PrintTerm(&conclusion); puts(""); ) 
+return conclusion;
+}
+RULE_69:
+{
+if(doublePremise) { goto RULE_70; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_70; }
+if(term1.atoms[1] != 40){ goto RULE_70; }
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_70; }
+substitutions[31] = subtree;
+if(term1.atoms[3] != 47){ goto RULE_70; }
+if(term1.atoms[4] != 47){ goto RULE_70; }
+subtree = Term_ExtractSubterm(&term1, 7);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_70; }
+substitutions[28] = subtree;
+if(term1.atoms[8] != 38){ goto RULE_70; }
+subtree = Term_ExtractSubterm(&term1, 9);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_70; }
+substitutions[29] = subtree;
+if(term1.atoms[10] != 38){ goto RULE_70; }
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+conclusion.atoms[1] = 47;
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[31])){ goto RULE_70; }
+if(!Term_OverrideSubterm(&conclusion,3,&substitutions[28])){ goto RULE_70; }
+if(!Term_OverrideSubterm(&conclusion,4,&substitutions[29])){ goto RULE_70; }
+IN_DEBUG( fputs("Reduced: ", stdout); Narsese_PrintTerm(&term1); fputs(" -> ", stdout); Narsese_PrintTerm(&conclusion); puts(""); ) 
+return conclusion;
+}
+RULE_70:
+{
+if(doublePremise) { goto RULE_71; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_71; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_71; }
+substitutions[31] = subtree;
+if(term1.atoms[2] != 40){ goto RULE_71; }
+if(term1.atoms[5] != 47){ goto RULE_71; }
+if(term1.atoms[6] != 47){ goto RULE_71; }
+subtree = Term_ExtractSubterm(&term1, 11);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_71; }
+substitutions[28] = subtree;
+if(term1.atoms[12] != 38){ goto RULE_71; }
+subtree = Term_ExtractSubterm(&term1, 13);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_71; }
+substitutions[29] = subtree;
+if(term1.atoms[14] != 38){ goto RULE_71; }
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[31])){ goto RULE_71; }
+conclusion.atoms[2] = 47;
+if(!Term_OverrideSubterm(&conclusion,5,&substitutions[28])){ goto RULE_71; }
+if(!Term_OverrideSubterm(&conclusion,6,&substitutions[29])){ goto RULE_71; }
+IN_DEBUG( fputs("Reduced: ", stdout); Narsese_PrintTerm(&term1); fputs(" -> ", stdout); Narsese_PrintTerm(&conclusion); puts(""); ) 
+return conclusion;
+}
+RULE_71:
+{
+if(doublePremise) { goto RULE_72; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_72; }
+if(term1.atoms[1] != 40){ goto RULE_72; }
+subtree = Term_ExtractSubterm(&term1, 2);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_72; }
+substitutions[31] = subtree;
+if(term1.atoms[3] != 46){ goto RULE_72; }
+if(term1.atoms[4] != 46){ goto RULE_72; }
+subtree = Term_ExtractSubterm(&term1, 7);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_72; }
+substitutions[28] = subtree;
+if(term1.atoms[8] != 38){ goto RULE_72; }
+subtree = Term_ExtractSubterm(&term1, 9);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_72; }
+substitutions[29] = subtree;
+if(term1.atoms[10] != 38){ goto RULE_72; }
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+conclusion.atoms[1] = 46;
+if(!Term_OverrideSubterm(&conclusion,2,&substitutions[31])){ goto RULE_72; }
+if(!Term_OverrideSubterm(&conclusion,3,&substitutions[28])){ goto RULE_72; }
+if(!Term_OverrideSubterm(&conclusion,4,&substitutions[29])){ goto RULE_72; }
+IN_DEBUG( fputs("Reduced: ", stdout); Narsese_PrintTerm(&term1); fputs(" -> ", stdout); Narsese_PrintTerm(&conclusion); puts(""); ) 
+return conclusion;
+}
+RULE_72:
+{
+if(doublePremise) { goto RULE_73; }
+Term substitutions[27+NUM_ELEMENTS(Narsese_RuleTableVars)] = {0}; Term subtree = {0};
+if(term1.atoms[0] != 43){ goto RULE_73; }
+subtree = Term_ExtractSubterm(&term1, 1);
+if(substitutions[31].atoms[0]!=0 && !Term_Equal(&substitutions[31], &subtree)){ goto RULE_73; }
+substitutions[31] = subtree;
+if(term1.atoms[2] != 40){ goto RULE_73; }
+if(term1.atoms[5] != 46){ goto RULE_73; }
+if(term1.atoms[6] != 46){ goto RULE_73; }
+subtree = Term_ExtractSubterm(&term1, 11);
+if(substitutions[28].atoms[0]!=0 && !Term_Equal(&substitutions[28], &subtree)){ goto RULE_73; }
+substitutions[28] = subtree;
+if(term1.atoms[12] != 38){ goto RULE_73; }
+subtree = Term_ExtractSubterm(&term1, 13);
+if(substitutions[29].atoms[0]!=0 && !Term_Equal(&substitutions[29], &subtree)){ goto RULE_73; }
+substitutions[29] = subtree;
+if(term1.atoms[14] != 38){ goto RULE_73; }
+Term conclusion = {0};
+conclusion.atoms[0] = 43;
+if(!Term_OverrideSubterm(&conclusion,1,&substitutions[31])){ goto RULE_73; }
+conclusion.atoms[2] = 46;
+if(!Term_OverrideSubterm(&conclusion,5,&substitutions[28])){ goto RULE_73; }
+if(!Term_OverrideSubterm(&conclusion,6,&substitutions[29])){ goto RULE_73; }
+IN_DEBUG( fputs("Reduced: ", stdout); Narsese_PrintTerm(&term1); fputs(" -> ", stdout); Narsese_PrintTerm(&conclusion); puts(""); ) 
+return conclusion;
+}
+RULE_73:;
+return term1;
+}
+

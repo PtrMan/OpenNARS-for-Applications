@@ -31,7 +31,7 @@
 //Truth expectation needed for anticipation
 #define ANTICIPATION_THRESHOLD_INITIAL 0.501
 //Confidence of anticipation failures
-#define ANTICIPATION_CONFIDENCE_INITIAL 0.005
+#define ANTICIPATION_CONFIDENCE_INITIAL 0.08
 
 /*-----------------------*/
 /* Subgoaling parameters */
@@ -67,7 +67,7 @@
 //Minimum priority to accept events
 #define MIN_PRIORITY 0
 //Occurrence time distance in which case event belief is preferred over eternal 
-#define EVENT_BELIEF_DISTANCE 40
+#define EVENT_BELIEF_DISTANCE 10 // 20
 //Amount of belief concepts to select to be matched to the selected event
 #define BELIEF_CONCEPT_MATCH_TARGET 80
 //Adaptation speed of the concept priority threshold to meet the match target
@@ -85,7 +85,7 @@
 //Maximum size of the stamp in terms of evidental base id's
 #define STAMP_SIZE 10
 //Maximum event FIFO size
-#define FIFO_SIZE 26 // 20
+#define FIFO_SIZE 20
 //Maximum Implication table size
 #define TABLE_SIZE 20
 //Maximum length of sequences
@@ -113,7 +113,7 @@
 //NAL evidental horizon
 #define TRUTH_EVIDENTAL_HORIZON_INITIAL 1.0
 //Time distance based projection decay of event truth
-#define TRUTH_PROJECTION_DECAY_INITIAL 0.92 // 0.8
+#define TRUTH_PROJECTION_DECAY_INITIAL 0.7 //0.8
 //Maximum value for confidence
 #define MAX_CONFIDENCE 0.99
 

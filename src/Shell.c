@@ -75,7 +75,7 @@ void Shell_NARInit(bool addOps)
         NAR_AddOperation(Narsese_AtomicTerm("^up"), Shell_op_up); 
         NAR_AddOperation(Narsese_AtomicTerm("^down"), Shell_op_down);
         //NAR_AddOperation(Narsese_AtomicTerm("^say"), Shell_op_say);
-        NAR_AddOperation(Narsese_AtomicTerm("^pick"), Shell_op_pick);
+        ///NAR_AddOperation(Narsese_AtomicTerm("^pick"), Shell_op_pick);
         //NAR_AddOperation(Narsese_AtomicTerm("^drop"), Shell_op_drop);
         //NAR_AddOperation(Narsese_AtomicTerm("^go"), Shell_op_go);
         //NAR_AddOperation(Narsese_AtomicTerm("^activate"), Shell_op_activate);
