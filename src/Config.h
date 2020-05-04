@@ -31,17 +31,17 @@
 //Truth expectation needed for anticipation
 #define ANTICIPATION_THRESHOLD_INITIAL 0.501
 //Confidence of anticipation failures
-#define ANTICIPATION_CONFIDENCE_INITIAL 0.01 // my old setting 0.08
+#define ANTICIPATION_CONFIDENCE_INITIAL 0.005
 
 /*---------------------*/
 /* Decision parameters */
 /*---------------------*/
 //Truth expectation needed for executions
-#define DECISION_THRESHOLD_INITIAL 0.351
+#define DECISION_THRESHOLD_INITIAL 0.501
 //Motor babbling chance
 #define MOTOR_BABBLING_CHANCE_INITIAL 0.1
 //Decisions above the following threshold will suppress babbling actions
-#define MOTOR_BABBLING_SUPPRESSION_THRESHOLD 0.9//0.6
+#define MOTOR_BABBLING_SUPPRESSION_THRESHOLD 0.6
 
 /*----------------------*/
 /* Attention parameters */
@@ -61,7 +61,7 @@
 //Minimum priority to accept events
 #define MIN_PRIORITY 0
 //Occurrence time distance in which case event belief is preferred over eternal 
-#define EVENT_BELIEF_DISTANCE 20 // 20
+#define EVENT_BELIEF_DISTANCE 20
 //Amount of belief concepts to select to be matched to the selected event
 #define BELIEF_CONCEPT_MATCH_TARGET 80
 //Adaptation speed of the concept priority threshold to meet the match target
@@ -83,11 +83,11 @@
 //Maximum size of the stamp in terms of evidental base id's
 #define STAMP_SIZE 10
 //Maximum event FIFO size
-#define FIFO_SIZE 20
+#define FIFO_SIZE 40//20
 //Maximum Implication table size
 #define TABLE_SIZE 20
 //Maximum length of sequences
-#define MAX_SEQUENCE_LEN 3
+#define MAX_SEQUENCE_LEN 2
 //Maximum compound term size
 #define COMPOUND_TERM_SIZE_MAX 64
 //Max. amount of atomic terms, must be <= 2^(sizeof(Atom)*8)
@@ -111,7 +111,7 @@
 //NAL evidental horizon
 #define TRUTH_EVIDENTAL_HORIZON_INITIAL 1.0
 //Time distance based projection decay of event truth
-#define TRUTH_PROJECTION_DECAY_INITIAL 0.8 //0.8
+#define TRUTH_PROJECTION_DECAY_INITIAL 0.8
 //Maximum value for confidence
 #define MAX_CONFIDENCE 0.99
 
